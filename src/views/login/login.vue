@@ -3,12 +3,12 @@
         <div class="login-container">
             <div class="loginform">
                 <h1>Login to your account</h1>
-                <el-form ref="form" :model="form" status-icon :rules="rules">
+                <el-form ref="form" :model="form" :hide-required-asterisk="true" :rules="rules">
                     <el-form-item prop="account">
                         <el-input v-model="form.account" placeholder="E-mail Address"/>
                     </el-form-item>
                     <el-form-item prop="pass">
-                        <el-input v-model="form.pass" placeholder="Password" type="password"
+                        <el-input v-model="form.pass" placeholder="Password"  :show-password="true" type="password"
                                   @keyup.enter.native="handleLogin(form)"/>
                     </el-form-item>
                     <el-form-item>

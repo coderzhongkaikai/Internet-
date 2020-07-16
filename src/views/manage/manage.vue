@@ -2,13 +2,13 @@
     <div class="manage">
         <el-row style="height: 100%;">
             <el-col :span="3"  style="min-height: 100%; background-color: #1777db; border-radius: 0 3% 3% 0">
-                <el-menu background-color="rgb(23, 119, 219)" text-color="#f4f5f9" router style="height: 100%;border: none;overflow: hidden">
+                <el-menu  :default-active="activeMenu" @select="handleSelect" background-color="rgb(23, 119, 219)" text-color="#f4f5f9" router style="height: 100%;border: none;overflow: hidden">
                     <el-menu-item  index="home">首页</el-menu-item>
                     <!--<el-submenu index="1">-->
                         <!--<template slot="title"><span>设备管理</span></template>-->
-                        <el-menu-item index="deviceInfo">设备信息</el-menu-item>
-                        <el-menu-item index="deviceMonitor">设备实时工况</el-menu-item>
-                        <el-menu-item index="deviceHistory">设备历史工况</el-menu-item>
+                        <el-menu-item index="deviceInfo/index">设备信息</el-menu-item>
+                        <el-menu-item index="deviceMonitor/index">设备实时工况</el-menu-item>
+                        <el-menu-item index="deviceHistory/index">设备历史工况</el-menu-item>
                     <!--</el-submenu>-->
                 </el-menu>
             </el-col>
@@ -32,7 +32,11 @@
         components: {HeadTop},
         computed: {
             defaultActive: function(){
-                return this.$route.path.replace('/', '');
+                const { path } = this.$route;
+                console.log(path)
+                const resultPath = path.replace(/\/index/, "");
+                return resultPath;
+                // return this.$route.path.replace('/', '');
             }
         },
     }
@@ -63,8 +67,6 @@
             };
         }
     }
-</style>
-<style>
     .el-submenu__title:hover{
         background-color: #48576a !important;
     }

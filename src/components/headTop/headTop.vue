@@ -1,10 +1,10 @@
 <template>
     <div class="container">
         <div class="head-top">
-            <div class="search-container">
+            <!-- <div class="search-container">
                 <i class="el-icon-search"></i>
                 <el-input style="background-color: #eceff4" size="large" v-model="searchData" placeholder="Search here"/>
-            </div>
+            </div> -->
             <div class="mention" @click="mention()">
                 <el-badge is-dot>
                     <i class="el-icon-bell"></i>
@@ -64,7 +64,7 @@
 
         .head-top {
             margin: 0;
-            width: 500px;
+            width: 200px;
             height: 80px;
             float: right;
             display: flex;
@@ -92,8 +92,6 @@
             clear: both;
         }
     }
-</style>
-<style>
     .head-top .el-input, .head-top .el-input__inner{
         width: 200px;
         height: 50px;

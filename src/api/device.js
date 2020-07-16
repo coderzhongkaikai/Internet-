@@ -2,13 +2,14 @@ import ipURL from "./config";
 import {get, post, put, deletes} from "../utils/service";
 
 //首页
-function getHome(isShowMsg = 1) {
-    return get(ipURL + '/first');
-}
-export function getHomePic() {
-    return get(ipURL+'/firstimg');
-}
-//设备信息
+// function getHome(isShowMsg = 1) {
+//     return get(ipURL + '/first');
+// }
+// export function getHomePic() {
+//     return get(ipURL+'/firstimg');
+// }
+// //设备信息
+
 //获取设备信息
 function getDeviceInfo(page, isShowMsg = 0) {
     return post(ipURL + '/information/findAll/' + page + '/10');
@@ -57,6 +58,5 @@ export {
     addEquipment,
     editEquipment,
     search,
-    uploadExcel,
-    getHome
+    uploadExcel
 }
