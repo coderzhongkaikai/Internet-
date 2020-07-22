@@ -1,30 +1,25 @@
 import axios from 'axios';
 import config from '../../config';
 import {Message} from 'element-ui';
-import store from '../store';
+// import store from '../store';
 import router from '../router';
 // url = base url + request url
 const server=axios.create({
-    baseURL:process.env.NODE_ENV==="production"?config.build.BASE_URL:config.dev.BASE_URL,
+    baseURL:process.env.NODE_ENV==="production"? config.build.BASE_URL:config.dev.BASE_URL,
     timeout: 5000, // request timeout
     headers: {'Content-Type':'application/json;charset=UTF-8'}
 })
 server.interceptors.request.use(config=>{
-    if(store.state.user.token){
-        config.headers['X-Token']=store.state.user.token;
-    }
+    console.log(config)
+    // if(store.state.user.token){
+    //     config.headers['X-Token']=store.state.user.token;
+    // }
     return config;
-},errpr=>{
+},error=>{
     console.log(error);
     return Promise.reject(error);
 })
-
-server.interceptors.response.use(response=>{
-    const res=response.data;
-
-})
-
-service.interceptors.response.use(res => {
+server.interceptors.response.use(res => {
         if (res.data.msg!=undefined) {
             if (res.data.code == 200 ||res.data.code==1) {
                 Message.success(res.data.msg);
@@ -35,10 +30,7 @@ service.interceptors.response.use(res => {
         if (res.data.msg==='token已失效，请重新登录'){
             this.$router.push('/home');
         }
-
         //token失效处理
-
-
         return res;
     },error => {
         //if (error.response){

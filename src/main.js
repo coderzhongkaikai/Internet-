@@ -12,11 +12,12 @@ import VeLine from 'v-charts/lib/line.common'
 import VePie from 'v-charts/lib/pie.common'
 import VeMap from 'v-charts/lib/map.common'
 import VeRing from 'v-charts/lib/ring.common'
-
+import Histogram from 'v-charts/lib/histogram.common'
 Vue.component(VeLine.name, VeLine);
 Vue.component(VePie.name, VePie);
 Vue.component(VeMap.name, VeMap);
 Vue.component(VeRing.name, VeRing);
+Vue.component(Histogram.name, Histogram);
 
 // 引入echarts
 import echarts from 'echarts'

@@ -87,6 +87,7 @@
     import UploadExcel from "../../../components/uploadExcel/uploadExcel";
     import {getDeviceInfo, deleteDevice, addEquipment, editEquipment, uploadExcel} from "../../../api/device";
     import ExportTable from "../../../components/exportTable/exportTable";
+    import {findAll,add,Delete,update} from "../../../api/infomation"
 
     export default {
         name: "device",
@@ -117,7 +118,7 @@
                 this.currentPage = page;
             },
             httpGetTableData(page) {//拉取当前页设备数据（有请求）
-                getDeviceInfo(page).then(res => {
+                findAll(page).then(res => {
                     console.log(res.data)
                     this.table = res.data.list;
                     this.totalNumber = res.data.total;
@@ -162,15 +163,16 @@
                 this.isEdit = true;
             },
             confirmChange() {  //确定修改（新增）设备信息（有请求）
+           // +++++++++++++++++++++++++++++++
                 if (this.isEdit) {
-                    editEquipment(this.dataForm, 1).then(res => {
+                    editEquipment(this.dataForm).then(res => {
                             this.dialogFormVisible = false;
                             this.httpGetTableData(this.currentPage);
                     }).catch(error => {
                         console.log(error.status);
                     });
                 } else {
-                    addEquipment(this.dataForm, 1).then(res => {
+                    add(this.dataForm).then(res => {
                             this.dialogFormVisible = false;
                             this.httpGetTableData(1);
                     }).catch(error => {
@@ -179,7 +181,7 @@
                 }
             },
             handleDelete(index, row) {//删除设备（有请求）
-                deleteDevice(row.id).then(res => {
+                Delete(row.id).then(res => {
                     this.httpGetTableData(this.currentPage);
                 }).catch(error => {
                     console.log(error.status);

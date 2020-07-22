@@ -1,8 +1,8 @@
 module.exports={
     build:{
-        BASE_URL:''
+        BASE_URL:'http://39.106.205.203:8084'
     },
     dev:{
-        BASE_URL:'http://localhost:3003'
+        BASE_URL:'api'
     }
 }

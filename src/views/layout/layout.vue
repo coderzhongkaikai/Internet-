@@ -12,13 +12,7 @@
           router="true"
           style="height: 100%;border: none;overflow: hidden"
         >
-          <!-- <template v-for="route in routes">
-                   </template>
-                   <el-submenu 
-                    :index="route.title"
-                    :key="route.title">
-                            {{route.title}}
-                   </el-submenu> -->
+     
           <el-menu-item index="/home">首页</el-menu-item>
           <el-menu-item index="/deviceInfo">设备信息</el-menu-item>
           <el-menu-item index="/deviceMonitor">设备实时工况</el-menu-item>

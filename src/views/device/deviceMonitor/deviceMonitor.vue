@@ -33,7 +33,8 @@
 
 <script>
     import ExportTable from "../../../components/exportTable/exportTable";
-    import {getDeviceMonitor} from "../../../api/device";
+    // import {getDeviceMonitor} from "../../../api/device";
+    import {findAll,add,Delete,update} from "../../../api/now"
 
     export default {
         name: "deviceMonitor",
@@ -55,7 +56,7 @@
         },
         methods: {
             handleCurrentChange(page) {
-                getDeviceMonitor(page).then(res => {
+                findAll(page).then(res => {
                     this.table = res.data.list;
                     this.totalNumber = res.data.total;
                     console.log(res.data);

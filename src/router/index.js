@@ -54,7 +54,7 @@ const routes = [
     {
         path: '/deviceMonitor',
         title: '设备实时工况',
-        redirect:'/profile/index',
+        redirect:'/deviceMonitor/index',
         component:layout,
         children:[
             {
